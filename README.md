@@ -54,8 +54,8 @@ The main script that integrates backend and frontend functionalities and runs th
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/my_streamlit_app.git
-    cd my_streamlit_app
+    git clone https://github.com/pranoyghosh35/interactive_table_explorer.git
+    cd interactive_table_explorer
     ```
 
 2. Create a virtual environment and activate it:
@@ -71,8 +71,8 @@ The main script that integrates backend and frontend functionalities and runs th
     
 Or build docker image and run it.
 
-- docker build -t my_app .
-- docker run -p 8501:8501 my_app
+- docker build -t app .
+- docker run -p 8501:8501 app
 
 ### Running the App
 
