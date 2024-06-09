@@ -7,7 +7,7 @@ We provide a Streamlit application that allows users to:
 - chat in natural language (english powered by OpenAI's GPT-3.5) on data analysis such as summarizing data, finding specific values, and performing basic statistical operations.
 
 ## Directory Structure
-
+```
 interactive_table_explorer/
 ├── backend/
 │   ├── chat.py
@@ -19,7 +19,7 @@ interactive_table_explorer/
 │   └── __init__.py
 ├── app.py
 └── README.md
-
+```
 ### Module Descriptions
 
 #### `doc_load.py`
