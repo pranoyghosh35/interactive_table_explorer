@@ -3,10 +3,11 @@ import streamlit as st
 import plotly.graph_objs as go
 import pandas as pd
 
+
 def display_dataframe(df, n_head=5, n_tail=5, n_random_sample=None):
     """
     Display the head, tail, or a random sample of a DataFrame using Streamlit.
-    
+
     Parameters:
         df (pd.DataFrame): The DataFrame to display.
         n_head (int): Number of rows to display from the head of the DataFrame.
@@ -14,15 +15,18 @@ def display_dataframe(df, n_head=5, n_tail=5, n_random_sample=None):
         n_random_sample (int): Number of random rows to display from the DataFrame. Overrides head and tail display if specified.
     """
     if n_random_sample:
-        st.write(f"Random sample of {n_random_sample} rows from the DataFrame:")
+        st.write(
+            f"Random sample of {n_random_sample} rows from the DataFrame:")
         st.write(df.sample(n_random_sample))
     else:
         st.write("Head of the DataFrame:")
         st.write(df.head(n_head))
         st.write("Tail of the DataFrame:")
         st.write(df.tail(n_tail))
-        
-def plotly_dataframe(df, x_axis, y_axis, legend=True, colormap='Viridis', marker='x', marker_size=2, x_lim=None, y_lim=None, target_class=None):
+
+
+def plotly_dataframe(df, x_axis, y_axis, legend=True, colormap='Viridis',
+                     marker='x', marker_size=2, x_lim=None, y_lim=None, target_class=None):
     """
     Create a Plotly scatter plot between y_axis vs x_axis. Optionally group by a target class.
 
@@ -52,7 +56,10 @@ def plotly_dataframe(df, x_axis, y_axis, legend=True, colormap='Viridis', marker
                 x=class_df[x_axis],
                 y=class_df[y_axis],
                 mode='markers',
-                marker=dict(symbol=marker, size=marker_size, colorscale=colormap),
+                marker=dict(
+                    symbol=marker,
+                    size=marker_size,
+                    colorscale=colormap),
                 name=f"{y_axis} ({class_value})"
             ))
 
@@ -61,23 +68,32 @@ def plotly_dataframe(df, x_axis, y_axis, legend=True, colormap='Viridis', marker
             x=df[x_axis],
             y=df[y_axis],
             mode='markers',
-            marker=dict(symbol=marker, size=marker_size, color=df[y_axis], colorscale=colormap),
+            marker=dict(
+                symbol=marker,
+                size=marker_size,
+                color=df[y_axis],
+                colorscale=colormap),
             name=y_axis
         ))
-        
-    # Ensure x-axis ticks show only actual values in the data at regular intervals
+
+    # Ensure x-axis ticks show only actual values in the data at regular
+    # intervals
     unique_x_vals = df[x_axis].unique()
     unique_x_vals.sort()
-    tick_interval = max(1, len(unique_x_vals) // 10)  # Adjust the interval as needed
-    tickvals = unique_x_vals[::tick_interval]    
+    # Adjust the interval as needed
+    tick_interval = max(1, len(unique_x_vals) // 10)
+    tickvals = unique_x_vals[::tick_interval]
 
     # Update layout
     fig.update_layout(
-        xaxis=dict(title=x_axis, range=x_lim, tickmode='array', tickvals=tickvals),#only show those x-ticks that exist in data
+        xaxis=dict(
+            title=x_axis,
+            range=x_lim,
+            tickmode='array',
+            tickvals=tickvals),
+        # only show those x-ticks that exist in data
         yaxis=dict(title=y_axis, range=y_lim),
         showlegend=legend,
     )
 
     return fig
-
-

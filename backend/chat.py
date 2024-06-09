@@ -5,9 +5,12 @@ from langchain_experimental.agents import create_pandas_dataframe_agent
 from langchain.callbacks import StreamlitCallbackHandler
 from langchain.chat_models import ChatOpenAI
 
+
 def setup_chat(df, openai_api_key, temp=0):
-    if "messages" not in st.session_state or st.sidebar.button("Clear conversation history"):
-        # Extract column names from the DataFrame to include in the instructions
+    if "messages" not in st.session_state or st.sidebar.button(
+            "Clear conversation history"):
+        # Extract column names from the DataFrame to include in the
+        # instructions
         column_names = ", ".join(df.columns)
 
         basic_instructions = f"""
@@ -21,7 +24,8 @@ def setup_chat(df, openai_api_key, temp=0):
     prompt = st.chat_input(placeholder="Ask about the data...")
 
     if prompt:
-        st.session_state["messages"].append({"role": "user", "content": prompt})
+        st.session_state["messages"].append(
+            {"role": "user", "content": prompt})
         st.chat_message("user").write(prompt)
 
         if not openai_api_key:
@@ -41,11 +45,14 @@ def setup_chat(df, openai_api_key, temp=0):
         )
 
         with st.chat_message("assistant"):
-            st_cb = StreamlitCallbackHandler(st.container(), expand_new_thoughts=True)
+            st_cb = StreamlitCallbackHandler(
+                st.container(), expand_new_thoughts=True)
             try:
-                response = pandas_df_agent.run(st.session_state["messages"], callbacks=[st_cb])
-                st.session_state["messages"].append({"role": "assistant", "content": response})
-                
+                response = pandas_df_agent.run(
+                    st.session_state["messages"], callbacks=[st_cb])
+                st.session_state["messages"].append(
+                    {"role": "assistant", "content": response})
+
             except Exception as e:
                 st.write("Sorry, an error occurred while processing your request.")
                 st.write(str(e))

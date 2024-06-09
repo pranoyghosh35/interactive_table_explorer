@@ -1,6 +1,7 @@
 import streamlit as st
 import codecs
 
+
 def setup_ui():
     """
     Set up the Streamlit UI components.
@@ -8,7 +9,7 @@ def setup_ui():
     st.title("📊 Come interact with Data!")
     st.sidebar.title("ℹ️ About")
     # Path to the README.html file
-    readme_path = "./data/usr_manuals/README.html"
+    readme_path = "https://pranoyghosh35.github.io/interactive_table_explorer/"
 
     # Provide a link to open the README.html content in a new window
     st.sidebar.markdown(
@@ -17,10 +18,11 @@ def setup_ui():
     )
     st.sidebar.info(
         """
-        This app allows you to upload a data file with one or more tables, select one at a time and visualize any two features 
+        This app allows you to upload a data file with one or more tables, select one at a time and visualize any two features
         from selected table.
         """
     )
+
 
 def display_file_uploader(clear_submit):
     """
@@ -32,6 +34,7 @@ def display_file_uploader(clear_submit):
         on_change=clear_submit,
     )
     return uploaded_file
+
 
 def display_openai_api_key_input():
     """

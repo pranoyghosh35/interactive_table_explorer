@@ -9,38 +9,39 @@ We provide a Streamlit application that allows users to:
 ## Directory Structure
 
 interactive_table_explorer/
-│
 ├── backend/
-│ ├── init.py
-│ ├── doc_load.py
-│ ├── plot_from_dataframe.py
-│ └── ...
-│
+│   ├── chat.py
+│   ├── doc_load.py
+│   ├── __init__.py
+│   └── util.py
 ├── frontend/
-│ ├── init.py
-│ ├── app_st_ui.py
-│ ├── file_handling.py
-│ ├── display_table.py
-│ └── ...
-│
+│   ├── app_st_ui.py
+│   └── __init__.py
 ├── app.py
 └── README.md
 
+### Module Descriptions
 
-### File Descriptions
+#### `doc_load.py`
 
-- **`backend/`**: Contains modules for backend functionalities.
-    - **`doc_load.py`**: Contains functions for loading data files.
-    - **`plot_from_dataframe.py`**: Contains functions for plotting from DataFrame.
-    - Other backend modules...
-    
-- **`frontend/`**: Contains modules for frontend (Streamlit UI) functionalities.
-    - **`app_st_ui.py`**: Contains functions for setting up the Streamlit UI.
-    - **`file_handling.py`**: Contains functions for handling file uploads and data loading.
-    - **`display_table.py`**: Contains functions for displaying data as a table.
-    - Other frontend modules...
+This module provides functions to load data from uploaded files. It supports various file formats including CSV, Excel, and others.
 
-- **`app.py`**: The main script that brings everything together and runs the Streamlit app.
+#### `chat.py`
+
+This module sets up a chat interface for data analysis, utilizing OpenAI's language model. Users can interact with the system to summarize data, perform statistical operations, and more.
+
+#### `util.py`
+
+This module contains utility functions for displaying data frames and creating interactive Plotly plots. It provides functions to visualize DataFrame head, tail, or a random sample, as well as to create scatter plots.
+
+#### `app_st_ui.py`
+
+This module sets up the Streamlit UI components for the application. It includes functions to display information about the app and handle user interactions.
+
+#### `app.py`
+
+The main script that integrates backend and frontend functionalities and runs the Streamlit app. It orchestrates the interaction between different modules to provide a seamless user experience.
+
 
 ## Setup Instructions
 
@@ -82,9 +83,16 @@ streamlit run app.py
 
 ## How to Use
 
-- [Uploading and viewing data file (CSV, Excel sheets)](https://drive.google.com/drive)
+- [Example CSV and Excel Files to try out](https://drive.google.com/drive/folders/1x76K-6e06ZSg925vCQ53twlXM0k62Lhy?usp=sharing)
+
+- [Uploading and viewing data file (CSV, Excel sheets)](https://youtu.be/9zxvtiKP59E)
+
+- [Making scatter plots from selected table](https://youtu.be/3xsAyI-vRTI)
   
-- [Enter your OpenAI API key in the sidebar. Interact with the data by typing queries in the chat input.](https://drive.google.com/drive)
+- [Interact with the data by typing queries in the chat input.](https://youtu.be/2Ywb_1L0ZKY)
+
+Rest assured we have prevented the bot from hallucinating by providing the data and features itself and instructued it to shy away from answering unrelated questions by appropriate system prompt. Please check "basic_instructions" inside setup_chat function of "chat" module.
+
 
 
 ## Contributions and Feedback
