@@ -1,8 +1,6 @@
 import streamlit as st
 
 import plotly.graph_objs as go
-import pandas as pd
-
 
 def display_dataframe(df, n_head=5, n_tail=5, n_random_sample=None):
     """

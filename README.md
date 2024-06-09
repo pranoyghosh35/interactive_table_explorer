@@ -3,7 +3,7 @@
 We provide a Streamlit application that allows users to:
 
 - upload a data file (CSV, Excel) and view it as a table (s).
-- plot scatter (also line) plots  with choosen x and y-axis (axes) to visualize relations between any two features with respect to the target class.
+- plot scatter plots  with choosen x and y-axis (axes) to visualize relations between any two features with respect to the target class.
 - chat in natural language (english powered by OpenAI's GPT-3.5) on data analysis such as summarizing data, finding specific values, and performing basic statistical operations.
 
 ## Directory Structure

@@ -1,5 +1,4 @@
 import streamlit as st
-import pandas as pd
 from langchain.agents import AgentType
 from langchain_experimental.agents import create_pandas_dataframe_agent
 from langchain.callbacks import StreamlitCallbackHandler

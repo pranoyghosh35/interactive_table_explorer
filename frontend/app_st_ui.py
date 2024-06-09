@@ -1,6 +1,4 @@
 import streamlit as st
-import codecs
-
 
 def setup_ui():
     """
