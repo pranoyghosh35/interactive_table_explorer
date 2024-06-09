@@ -1,5 +1,7 @@
 # Streamlit App for Interactive CSV Analysis and Query Application
 
+# Try now: https://interactive-table-explorer.onrender.com
+
 We provide a Streamlit application that allows users to:
 
 - upload a data file (CSV, Excel) and view it as a table (s).
