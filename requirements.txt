@@ -1,9 +1,13 @@
 streamlit
 pandas
+numpy
+scipy
 langchain-community
 langchain-core
 langchain_experimental
 plotly
+matplotlib
+seaborn
 openpyxl
 openai
 tabulate
